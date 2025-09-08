@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --accent-color: #2428ff;
+    --card-border: #c3c3c3;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --font-sans: "IBM Plex Sans Arabic", sans-serif;
+}
+/* html, body {
+    height: 100%;
+    min-height: 100%;
+} */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.wikipedia-container {
+    max-width: 650px;
+    margin: 0 auto;
+    flex: 1 0 auto;
+}
+
+.wikipedia-container h1 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.search-input {
+    font-family: var(--font-sans);
+    width: 100%;
+    padding: 1rem 3.5rem 1rem 1.5rem;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s;
+    box-shadow: var(--card-shadow);
+    transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.search-input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.search-form {
+    position: relative;
+    margin: 2.5rem;
+}
+
+.search-form button {
+    position: absolute;
+    right: 8px;
+    top: 35%;
+    transform: translateY(-50%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-color);
+    transition: background-color 0.5s;
+}
+
+.search-form button:hover {
+    background-color: #9a0000;
+}
+
+.search-form button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.results-container .result-item {
+    background: #fff;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.25rem;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.4s, box-shadow 0.3s;
+
+}
+
+.results-container .result-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.7);
+}
+
+.result-item a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.result-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color 0.2s ease-in-out;
+}
+
+.result-item a:hover .result-title {
+    color: var(--accent-color);
+}
+
+.result-snippet {
+    font-size: 1rem;
+    color: #555;
+}
+
+.result-snippet .searchmatch {
+    background-color: rgba(36, 40, 255, 0.2);
+    padding: 2px 4px;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.loader {
+    border: 6px solid #c9c9c9;
+    /* Light grey */
+    border-top: 6px solid var(--accent-color);
+    /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none;
+    /* Hidden by default */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.footer {
+    flex-shrink: 0;
+    background: linear-gradient(90deg, #2428ff 0%, #6c63ff 100%);
+    color: #fff;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    text-align: center;
+    font-family: var(--font-sans);
+    box-shadow: 0 -2px 12px rgba(36, 40, 255, 0.08);
+}
+.footer-content {
+    max-width: 650px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: underline;
+    margin: 0 0.5rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #ffd700;
+    text-decoration: none;
+}
+.footer-span {
+    font-weight: 900;
+    color: #ffd700;
+}
+
+/* Responsive result item styles */
+@media (max-width: 700px) {
+    .results-container .result-item {
+        padding: 1rem;
+        font-size: 0.98rem;
+    }
+    .result-title {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .results-container .result-item {
+        padding: 0.7rem;
+        font-size: 0.93rem;
+        border-radius: 8px;
+    }
+    .result-title {
+        font-size: 1rem;
+    }
+    .result-snippet {
+        font-size: 0.92rem;
+    }
+}

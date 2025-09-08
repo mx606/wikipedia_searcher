@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Wikipedia Searcher</title>
+  </head>
+  <body>
+    <div class="wikipedia-container">
+      <header>
+        <h1>أداة البحث في ويكيبيديا</h1>
+        <p class="subtitle">سهلنا لك الوصول لكل ماتريده</p>
+      </header>
+      <main>
+        <form class="search-form">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="إبحث في ويكيبيديا..."
+            required
+          />
+          <button type="submit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+          </button>
+        </form>
+        <div class="results-container">
+          <!-- <div class="result-item"></div> -->
+        </div>
+        <div class="loader"></div>
+      </main>
+    </div>
+    <script src="main.js"></script>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <span> مطور الأداة <span class="footer-span"> معاذ حمد </span> using Wikipedia API </span>
+        <span class="footer-links">
+          <a href="https://github.com/mx606/" target="_blank" rel="noopener">GitHub</a> |
+          <a href="https://ar.wikipedia.org/" target="_blank" rel="noopener">Arabic Wikipedia</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
