@@ -17,7 +17,7 @@ searchForm.addEventListener('submit', (e) => {
 async function fetchResults(searchTerm) {
     loader.style.display = 'block';
     resultsContainer.innerHTML = '';
-    const endpoint = `https://ar.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=10&srsearch=${searchTerm}`;
+    const endpoint = `https://ar.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=30&srsearch=${searchTerm}`;
     try {
         const response = await fetch(endpoint);
         if (!response.ok) {
@@ -54,3 +54,4 @@ function displayResults(results) {
         resultsContainer.appendChild(resultItem);
     })
 }
+
