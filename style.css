@@ -7,8 +7,8 @@
 }
 
 :root {
-    --bg-color: #f8f9fa;
-    --text-color: #212529;
+    --bg-color: #212121;
+    --text-color: #dddddd;
     --accent-color: #2428ff;
     --card-border: #c3c3c3;
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -29,6 +29,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    padding-top: 3rem; /* Add space for the notification bar */
 }
 
 .wikipedia-container {
@@ -54,6 +55,8 @@ body {
 }
 
 .search-input {
+    background: var(--bg-color);
+    color: var(--text-color);
     font-family: var(--font-sans);
     width: 100%;
     padding: 1rem 3.5rem 1rem 1.5rem;
@@ -105,7 +108,7 @@ body {
 }
 
 .results-container .result-item {
-    background: #fff;
+    background: var(--bg-color);
     border: 1px solid var(--card-border);
     border-radius: 12px;
     padding: 1.5rem;
@@ -138,11 +141,11 @@ body {
 
 .result-snippet {
     font-size: 1rem;
-    color: #555;
+    color: #f6f6f6;
 }
 
 .result-snippet .searchmatch {
-    background-color: rgba(36, 40, 255, 0.2);
+    background-color: rgba(94, 255, 8, 0.674);
     padding: 2px 4px;
     font-weight: 600;
     border-radius: 4px;
@@ -205,6 +208,39 @@ body {
 .footer-span {
     font-weight: 900;
     color: #ffd700;
+}
+
+.notification-bar {
+    width: 100%;
+    background: linear-gradient(90deg, #ffd700 0%, #ff9800 100%);
+    color: #222;
+    text-align: center;
+    padding: 0.7rem 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    overflow: hidden;
+}
+
+.notification-bar .marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+    min-width: 100%;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 /* Responsive result item styles */
