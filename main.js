@@ -46,12 +46,12 @@ function displayResults(results) {
         const resultItem = document.createElement('div');
         resultItem.classList.add('result-item');
         resultItem.innerHTML = `
-            <a href="${resultUrl}" target="_blank" rel="noopener"
-              ><h3 class="result-title">${result.title}</h3></a
-            >
+            <a href="${resultUrl}" target="_blank" rel="noopener" aria-label="فتح نتيجة ${result.title}">
+              <h3 class="result-title">${result.title}</h3>
+            </a>
             <div class="result-snippet">${result.snippet}</div>
-        `
+            <a href="${resultUrl}" target="_blank" rel="noopener" class="result-action" aria-label="معلومات إضافية عن ${result.title}" title="معلومات إضافية">↗</a>
+        `;
         resultsContainer.appendChild(resultItem);
-    })
+    });
 }
-
