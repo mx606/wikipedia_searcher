@@ -7,44 +7,35 @@
 }
 
 :root {
-    --bg-color: #111111;
-    --bg-panel: rgba(27, 25, 23, 0.9);
-    --text-color: #f3efe8;
-    --muted-color: #d4c9ba;
-    --accent-color: #d97706;
-    --accent-strong: #f59e0b;
-    --accent-soft: #f7d9a8;
-    --accent-deep: #7c3f02;
-    --card-border: rgba(217, 119, 6, 0.26);
-    --card-shadow: 0 0 0 1px rgba(217, 119, 6, 0.08), 0 12px 28px rgba(0, 0, 0, 0.28);
+    --bg-color: #212121;
+    --text-color: #dddddd;
+    --accent-color: #2428ff;
+    --card-border: #c3c3c3;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --font-sans: "IBM Plex Sans Arabic", sans-serif;
 }
-
-* {
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+/* html, body {
+    height: 100%;
+    min-height: 100%;
+} */
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     font-family: var(--font-sans);
-    background:
-        radial-gradient(circle at top, rgba(217, 119, 6, 0.12), transparent 24%),
-        linear-gradient(180deg, #111111 0%, #171510 28%, #0d0d0d 100%);
+    background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    padding-top: 3rem;
+    padding-top: 3rem; /* Add space for the notification bar */
 }
 
 .wikipedia-container {
     max-width: 650px;
     margin: 0 auto;
     flex: 1 0 auto;
-    padding: 2rem 1rem 0;
 }
 
 .wikipedia-container h1 {
@@ -53,42 +44,40 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: -1px;
-    color: #f7f3ee;
-    text-shadow: none;
 }
 
 .subtitle {
     text-align: center;
     margin-bottom: 2rem;
     font-size: 1.2rem;
-    color: #d7ccb7;
+    color: #6c757d;
     font-weight: 500;
 }
 
 .search-input {
-    background: rgba(19, 18, 16, 0.95);
+    background: var(--bg-color);
     color: var(--text-color);
     font-family: var(--font-sans);
     width: 100%;
     padding: 1rem 3.5rem 1rem 1.5rem;
     font-size: 1rem;
-    border: 2px solid rgba(217, 119, 6, 0.42);
+    border: 2px solid #ccc;
     border-radius: 50px;
     margin-bottom: 1.5rem;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02), 0 0 18px rgba(217, 119, 6, 0.08);
-    transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out, transform 0.3s ease;
+    transition: border-color 0.3s;
+    box-shadow: var(--card-shadow);
+    transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
 .search-input:focus {
     border-color: var(--accent-color);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.12), 0 0 22px rgba(217, 119, 6, 0.15);
-    transform: translateY(-1px);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 .search-form {
     position: relative;
-    margin: 2.5rem 0;
+    margin: 2.5rem;
 }
 
 .search-form button {
@@ -96,7 +85,7 @@ body {
     right: 8px;
     top: 35%;
     transform: translateY(-50%);
-    color: #1a1209;
+    color: #fff;
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -105,15 +94,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--accent-color), #f5b866);
-    box-shadow: 0 0 18px rgba(217, 119, 6, 0.22);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    background-color: var(--accent-color);
+    transition: background-color 0.5s;
 }
 
 .search-form button:hover {
-    transform: translateY(-50%) scale(1.04);
-    box-shadow: 0 0 22px rgba(217, 119, 6, 0.32);
-    filter: brightness(1.05);
+    background-color: #9a0000;
 }
 
 .search-form button svg {
@@ -122,20 +108,19 @@ body {
 }
 
 .results-container .result-item {
-    position: relative;
-    background: var(--bg-panel);
+    background: var(--bg-color);
     border: 1px solid var(--card-border);
-    border-radius: 14px;
-    padding: 1.5rem 4.5rem 1.5rem 1.5rem;
-    margin: 1.25rem 0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.25rem;
     box-shadow: var(--card-shadow);
-    transition: transform 0.4s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.4s, box-shadow 0.3s;
+
 }
 
 .results-container .result-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 0 1px rgba(217, 119, 6, 0.12), 0 8px 20px rgba(0, 0, 0, 0.22);
-    border-color: rgba(217, 119, 6, 0.4);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.7);
 }
 
 .result-item a {
@@ -143,67 +128,41 @@ body {
     text-decoration: none;
 }
 
-.result-action {
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(217, 119, 6, 0.12);
-    border: 1px solid rgba(217, 119, 6, 0.3);
-    color: var(--accent-soft);
-    text-decoration: none;
-    font-size: 1.35rem;
-    line-height: 1;
-    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
-}
-
-.result-action:hover {
-    transform: translateY(-50%) scale(1.06);
-    background: rgba(217, 119, 6, 0.18);
-    border-color: rgba(217, 119, 6, 0.55);
-}
-
 .result-title {
     margin: 0 0 0.5rem 0;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #f6f1ea;
     transition: color 0.2s ease-in-out;
 }
 
 .result-item a:hover .result-title {
-    color: var(--accent-strong);
+    color: var(--accent-color);
 }
 
 .result-snippet {
     font-size: 1rem;
-    color: #dfd3c2;
+    color: #f6f6f6;
 }
 
 .result-snippet .searchmatch {
-    background-color: rgba(245, 158, 11, 0.18);
-    color: #fef7ed;
+    background-color: rgba(94, 255, 8, 0.674);
     padding: 2px 4px;
     font-weight: 600;
     border-radius: 4px;
-    box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.12);
 }
 
 .loader {
-    border: 6px solid rgba(217, 119, 6, 0.14);
+    border: 6px solid #c9c9c9;
+    /* Light grey */
     border-top: 6px solid var(--accent-color);
+    /* Blue */
     border-radius: 50%;
     width: 40px;
     height: 40px;
     animation: spin 1s linear infinite;
     margin: 20px auto;
     display: none;
+    /* Hidden by default */
 }
 
 @keyframes spin {
@@ -215,19 +174,16 @@ body {
         transform: rotate(360deg);
     }
 }
-
 .footer {
     flex-shrink: 0;
-    background: linear-gradient(90deg, #1b1a17 0%, #221f1a 50%, #171510 100%);
-    color: #f3efe8;
+    background: linear-gradient(90deg, #2428ff 0%, #6c63ff 100%);
+    color: #fff;
     padding: 1.5rem;
     margin-top: 3rem;
     text-align: center;
     font-family: var(--font-sans);
-    box-shadow: 0 -2px 18px rgba(0, 0, 0, 0.18);
-    border-top: 1px solid rgba(217, 119, 6, 0.18);
+    box-shadow: 0 -2px 12px rgba(36, 40, 255, 0.08);
 }
-
 .footer-content {
     max-width: 650px;
     margin: 0 auto;
@@ -238,28 +194,26 @@ body {
 }
 
 .footer-links a {
-    color: #f4eadb;
+    color: #fff;
     text-decoration: underline;
     margin: 0 0.5rem;
     font-weight: 500;
-    transition: color 0.2s ease, text-shadow 0.2s ease;
+    transition: color 0.2s;
 }
 
 .footer-links a:hover {
-    color: var(--accent-soft);
+    color: #ffd700;
     text-decoration: none;
-    text-shadow: 0 0 10px rgba(217, 119, 6, 0.22);
 }
-
 .footer-span {
     font-weight: 900;
-    color: var(--accent-soft);
+    color: #ffd700;
 }
 
 .notification-bar {
     width: 100%;
-    background: linear-gradient(90deg, #2a201a 0%, #403126 38%, #1a1b1d 100%);
-    color: #f8f3ee;
+    background: linear-gradient(90deg, #ffd700 0%, #ff9800 100%);
+    color: #222;
     text-align: center;
     padding: 0.7rem 0.5rem;
     font-size: 1.05rem;
@@ -269,9 +223,8 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     overflow: hidden;
-    border-bottom: 1px solid rgba(217, 119, 6, 0.16);
 }
 
 .notification-bar .marquee {
@@ -293,22 +246,17 @@ body {
 /* Responsive result item styles */
 @media (max-width: 700px) {
     .results-container .result-item {
-        padding: 1rem 3.7rem 1rem 1rem;
+        padding: 1rem;
         font-size: 0.98rem;
     }
     .result-title {
         font-size: 1.15rem;
     }
-    .result-action {
-        width: 2.1rem;
-        height: 2.1rem;
-        right: 0.8rem;
-    }
 }
 
 @media (max-width: 500px) {
     .results-container .result-item {
-        padding: 0.7rem 3.3rem 0.7rem 0.7rem;
+        padding: 0.7rem;
         font-size: 0.93rem;
         border-radius: 8px;
     }
@@ -317,11 +265,5 @@ body {
     }
     .result-snippet {
         font-size: 0.92rem;
-    }
-    .result-action {
-        width: 1.9rem;
-        height: 1.9rem;
-        right: 0.7rem;
-        font-size: 1.1rem;
     }
 }
